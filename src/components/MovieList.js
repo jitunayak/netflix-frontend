@@ -84,10 +84,10 @@ export default function MovieList() {
 
   return (
     <div>
-      <h1 className="text-xl font-extrabold text-left p-2 text-white">
+      <h1 className="text-xl font-extrabold text-left px-2 text-white">
         Trending Movies
       </h1>
-      <div className="flex  flex-row justify-start  overflow-x-auto scrollbar-hide scroll-smooth ">
+      <div className="flex  flex-row justify-start  overflow-x-auto scrollbar-hide scroll-smooth py-4">
         {movies.map((movie, index) => {
           return (
             <div
@@ -104,7 +104,7 @@ export default function MovieList() {
               {showDetails !== movie.movieId ? (
                 <img
                   src={movie.thumbnail}
-                  className={"aspect-video w-72"}
+                  className="aspect-video w-72 hover:shadow-lg hover:shadow-cyan-500/50 "
                 ></img>
               ) : null}
             </div>
