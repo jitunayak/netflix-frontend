@@ -5,7 +5,7 @@ import ReactPlayer from "react-player";
 export default function MovieList() {
   const BASE_URL = "https://ct9wxby0v1.execute-api.ap-south-1.amazonaws.com";
   const [movies, setMovies] = useState([]);
-  const [showDetails, setShowDetails] = useState("");
+  const [showDetails, setShowDetails] = useState(null);
   const items = [
     {
       rating: 9.6,
