@@ -5,26 +5,16 @@ import MovieList from "./components/MovieList";
 import ScrollImages from "./components/ScrollImages";
 import { useState, useEffect } from "react";
 import { isExpired, decodeToken } from "react-jwt";
+import { setStoredToken, getStoredToken } from "./Utilities";
 
 function App() {
   const [username, setUsername] = useState("");
+  const domain = window.location.href;
   const loginUrl = `https://netflix.auth.ap-south-1.amazoncognito.com/login?client_id=2v4q07qaad1jlugonm96akg1nk&response_type=token&scope=email+openid&redirect_uri=${encodeURIComponent(
-    window.location.href
+    domain
   )}callback`;
 
   const currentDomain = encodeURIComponent(window.location.href);
-
-  function setStoredToken(userToken) {
-    sessionStorage.setItem("token", JSON.stringify(userToken));
-  }
-  function getStoredToken() {
-    const tokenString = sessionStorage.getItem("token");
-    if (tokenString == null || tokenString == undefined) {
-      return null;
-    }
-    const userToken = JSON.parse(tokenString);
-    return userToken;
-  }
 
   function getTokenFromCallbackUrl() {
     try {
@@ -50,15 +40,18 @@ function App() {
       setUsername("No User was found");
     } else {
       setUsername(getStoredToken().email);
+      if (getTokenFromCallbackUrl() !== null) {
+        console.log(domain.split("callback")[0]);
+        window.open(domain.split("callback")[0], "_self");
+      }
     }
-
     return () => {};
   }, []);
 
   return (
     <div className="bg-black">
-      <h1 className="text-white text-lg">Hello, {username}</h1>
       <Navbar />
+      <h1 className="text-white text-lg">Hello, {username}</h1>
       <MovieList />
     </div>
   );

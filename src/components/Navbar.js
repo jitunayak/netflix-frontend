@@ -19,10 +19,10 @@ export default function Navbar() {
         className="w-64"
         src="https://netflix-videos.s3.ap-south-1.amazonaws.com/Netflix-Logo.png"
       />
-      <img
+      {/* <img
         className="w-full h-96 object-center"
         src="https://images.thequint.com/thequint%2F2021-09%2Fb9aab177-f368-4185-91b4-b37f15c2b7ee%2Fmoneyheist.png"
-      />
+      /> */}
     </div>
   );
 }
