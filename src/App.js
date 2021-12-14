@@ -8,8 +8,11 @@ import { isExpired, decodeToken } from "react-jwt";
 
 function App() {
   const [username, setUsername] = useState("");
-  const loginUrl =
-    "https://netflix.auth.ap-south-1.amazoncognito.com/login?client_id=2v4q07qaad1jlugonm96akg1nk&response_type=token&scope=email+openid&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fcallback";
+  const loginUrl = `https://netflix.auth.ap-south-1.amazoncognito.com/login?client_id=2v4q07qaad1jlugonm96akg1nk&response_type=token&scope=email+openid&redirect_uri=${encodeURIComponent(
+    window.location.href
+  )}callback`;
+
+  const currentDomain = encodeURIComponent(window.location.href);
 
   function setStoredToken(userToken) {
     sessionStorage.setItem("token", JSON.stringify(userToken));
