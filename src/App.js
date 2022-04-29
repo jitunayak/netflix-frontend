@@ -1,9 +1,8 @@
-import logo from "./logo.svg";
 import "./App.css";
 import Navbar from "./components/Navbar";
 import MovieList from "./components/MovieList";
 import { useState, useEffect } from "react";
-import { isExpired, decodeToken } from "react-jwt";
+//import { isExpired, decodeToken } from "react-jwt";
 import { setStoredToken, getStoredToken } from "./Utilities";
 import Footer from "./components/Footer";
 import LoginScreen from "./components/LoginScreen";
