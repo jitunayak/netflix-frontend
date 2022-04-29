@@ -68,7 +68,7 @@ export default function LoginScreen() {
           />
           {!validatePassword(password) ? (
             <label className="text-red-400  text-sm py-1">
-              Minimum length should be 6 characters
+              Minimum length should be 8 characters
             </label>
           ) : null}
 
