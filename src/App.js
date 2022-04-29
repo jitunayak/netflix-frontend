@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 import { isExpired, decodeToken } from "react-jwt";
 import { setStoredToken, getStoredToken } from "./Utilities";
 import Footer from "./components/Footer";
+import LoginScreen from "./components/LoginScreen";
 
 function App() {
   const [username, setUsername] = useState("");
@@ -14,18 +15,18 @@ function App() {
     domain
   )}callback`;
 
-  const currentDomain = encodeURIComponent(window.location.href);
+  // const currentDomain = encodeURIComponent(window.location.href);
 
-  function getTokenFromCallbackUrl() {
-    try {
-      const pathname = window.location.href.split("=");
-      const myDecodedToken = decodeToken(pathname[1]);
-      setStoredToken(myDecodedToken);
-      return myDecodedToken;
-    } catch (err) {
-      return null;
-    }
-  }
+  // function getTokenFromCallbackUrl() {
+  //   try {
+  //     const pathname = window.location.href.split("=");
+  //     const myDecodedToken = decodeToken(pathname[1]);
+  //     setStoredToken(myDecodedToken);
+  //     return myDecodedToken;
+  //   } catch (err) {
+  //     return null;
+  //   }
+  // }
 
   useEffect(() => {
     // if (isExpired(getToken())) {
@@ -34,25 +35,28 @@ function App() {
 
     //https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/loading-browser-credentials-cognito.html
 
-    if (getStoredToken() === null && getTokenFromCallbackUrl() === null) {
-      window.open(loginUrl, "_self");
-      console.log("token is null");
-      setUsername("No User was found");
-    } else {
-      setUsername(getStoredToken().email);
-      if (getTokenFromCallbackUrl() !== null) {
-        console.log(domain.split("callback")[0]);
-        window.open(domain.split("callback")[0], "_self");
-      }
-    }
-    return () => { };
+    // if (getStoredToken() === null && getTokenFromCallbackUrl() === null) {
+    //   window.open(loginUrl, "_self");
+    //   console.log("token is null");
+    //   setUsername("No User was found");
+    // } else {
+    //   setUsername(getStoredToken().email);
+    //   if (getTokenFromCallbackUrl() !== null) {
+    //     console.log(domain.split("callback")[0]);
+    //     window.open(domain.split("callback")[0], "_self");
+    //   }
+    // }
+    return () => {};
   }, []);
 
   return (
     <div className="bg-black">
-      <Navbar username={username.split("@")[0]} />
+      {/* <Navbar username={username.split("@")[0]} />
       <MovieList category="Trending" />
       <MovieList category="New Releases" />
+      <Footer /> */}
+
+      <LoginScreen />
       <Footer />
     </div>
   );
