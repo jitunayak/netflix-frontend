@@ -2,7 +2,6 @@ import logo from "./logo.svg";
 import "./App.css";
 import Navbar from "./components/Navbar";
 import MovieList from "./components/MovieList";
-import ScrollImages from "./components/ScrollImages";
 import { useState, useEffect } from "react";
 import { isExpired, decodeToken } from "react-jwt";
 import { setStoredToken, getStoredToken } from "./Utilities";
@@ -45,15 +44,14 @@ function App() {
         window.open(domain.split("callback")[0], "_self");
       }
     }
-    return () => {};
+    return () => { };
   }, []);
 
   return (
     <div className="bg-black">
-      <Navbar />
-      <h1 className="text-white text-lg">Hello, {username}</h1>
-      <MovieList category="Trending"/>
-      <MovieList category="New Releases"/>
+      <Navbar username={username.split("@")[0]} />
+      <MovieList category="Trending" />
+      <MovieList category="New Releases" />
     </div>
   );
 }
