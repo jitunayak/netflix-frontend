@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import ReactPlayer from "react-player";
 
-export default function MovieList() {
+export default function MovieList({category}) {
   const BASE_URL = "https://ct9wxby0v1.execute-api.ap-south-1.amazonaws.com";
   const [movies, setMovies] = useState([]);
   const [showDetails, setShowDetails] = useState(null);
@@ -85,8 +85,7 @@ export default function MovieList() {
   return (
     <div>
       <h1 className="text-xl font-extrabold text-left px-2 text-white">
-        Trending Movies
-      </h1>
+    {category}      </h1>
       <div className="flex  flex-row justify-start  overflow-x-auto scrollbar-hide scroll-smooth py-4">
         {movies.map((movie, index) => {
           return (
