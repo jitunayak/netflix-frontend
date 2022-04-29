@@ -36,7 +36,7 @@ export default function MovieList({ category }) {
           return (
             <div
               key={movie.movieId}
-              className={"flex-shrink-0 w-48 mx-2 block rounded-sm "}
+              className={"flex-shrink-0 w-72 mx-2 block rounded-sm "}
               // onMouseEnter={() => {
               //   setShowDetails(movie);
               // }}
