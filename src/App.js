@@ -5,6 +5,7 @@ import MovieList from "./components/MovieList";
 import { useState, useEffect } from "react";
 import { isExpired, decodeToken } from "react-jwt";
 import { setStoredToken, getStoredToken } from "./Utilities";
+import Footer from "./components/Footer";
 
 function App() {
   const [username, setUsername] = useState("");
@@ -52,6 +53,7 @@ function App() {
       <Navbar username={username.split("@")[0]} />
       <MovieList category="Trending" />
       <MovieList category="New Releases" />
+      <Footer />
     </div>
   );
 }

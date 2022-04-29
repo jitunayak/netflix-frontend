@@ -11,7 +11,7 @@ export default function Navbar({ username }) {
       <div className="p-2 justify-between flex flex-row" >
         {/* <div className="text-2xl font-extrabold text-red-100">NETFLIX</div> */}
         <img alt="netflix logo" src={NETFLIX_URL} className="w-32"></img>
-        <p className="text-white text-sm p-4">Hello, {username.split("@")[0]}</p>
+        <p className="text-white p-4" style={{ fontSize: 10 }}>Hello, {username.split("@")[0]}</p>
 
         {/* <button
           className="text-white  self-center text-sm"
