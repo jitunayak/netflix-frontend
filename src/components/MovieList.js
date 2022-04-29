@@ -90,25 +90,25 @@ export default function MovieList({ category }) {
 
               <div
                 className=" font-bold text-white py-2"
-                style={{ fontSize: 10 }}
+                style={{ fontSize: 14 }}
               >
                 {showDetails.title}
               </div>
               <div
                 className=" font-bold text-gray-400"
-                style={{ fontSize: 8 }}
+                style={{ fontSize: 12 }}
               >
                 {showDetails.description}
               </div>
               <div
                 className="font-black text-gray-200 py-2"
-                style={{ fontSize: 8 }}
+                style={{ fontSize: 12 }}
               >
                 Rating: {showDetails.rating}
               </div>
               <div
                 className="text-xs font-black  text-gray-200"
-                style={{ fontSize: 8 }}
+                style={{ fontSize: 12 }}
               >
                 {showDetails.genre}
               </div>
