@@ -29,14 +29,14 @@ export default function MovieList({ category }) {
 
   return (
     <div>
-      <h1 className="text-sm font-extrabold text-left px-2 text-white">
+      <h1 className="text-lg font-extrabold text-left px-2 text-white mx-2">
         {category}      </h1>
       <div className="flex  flex-row justify-start  overflow-x-auto scrollbar-hide scroll-smooth py-4">
         {movies.map((movie, index) => {
           return (
             <div
               key={movie.movieId}
-              className={"flex-shrink-0 w-72 mx-2 block rounded-sm "}
+              className={"flex-shrink-0 w-72 mx-4 block rounded-sm "}
               // onMouseEnter={() => {
               //   setShowDetails(movie);
               // }}
