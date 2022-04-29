@@ -22,7 +22,7 @@ export default function LoginScreen() {
             type="password"
             placeholder="Password"
           />
-          <button className="bg-red-600 rounded-sm py-3 px-2 mt-10 text-white font-bold text-lg ">
+          <button className="bg-red-600 rounded-sm py-2 px-2 mt-10 text-white font-bold text-lg ">
             Sign In
           </button>
           <div className="flex-row flex py-10">
