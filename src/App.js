@@ -52,7 +52,8 @@ function App() {
     <div className="bg-black">
       <Navbar />
       <h1 className="text-white text-lg">Hello, {username}</h1>
-      <MovieList />
+      <MovieList category="Trending"/>
+      <MovieList category="New Releases"/>
     </div>
   );
 }
