@@ -55,7 +55,7 @@ export const moviesDummy = [
   },
   {
     rating: 9.6,
-    movieId: "3081a600-de7b-4982-b1fa-2b1d0c346d41",
+    movieId: "3081a600-de7b-4982-b1fa-2b1ac346d41",
     description:
       "Squid Game is korean-language film directed by Dong-Hwan Kim. It is the first film in the series and is the first film to be released in the Korean language. Hundreds of cash prizes are awarded to the top performers.",
     thumbnail:
@@ -63,5 +63,17 @@ export const moviesDummy = [
     genre: "Drama",
     title: "Squid Game",
     trailerUrl: "https://www.youtube.com/watch?v=oqxAJKy0ii4",
+  },
+
+  {
+    rating: 9.6,
+    movieId: "3081a600-de7b-4982-b1spfa-2b1346d41",
+    description:
+      "The Order of the Phoenix is a fantasy drama film directed by David Yates, written by David Greenwalt and starring Tom Cruise, Morgan Freeman, Henry Czerny, and Michael Caine.",
+    thumbnail:
+      "  https://gadgetfreeks.com/wp-content/uploads/2020/04/The-Order-Season-2.jpeg",
+    genre: "Thriller",
+    title: "The Order",
+    trailerUrl: "https://www.youtube.com/watch?v=iD-cFgDDuqM",
   },
 ];
