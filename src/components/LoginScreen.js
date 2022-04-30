@@ -76,8 +76,7 @@ export default function LoginScreen() {
           </button>
           <Link to="/home" className="text-white text-center pt-4">
             Login as guest
-          </Link>{" "}
-          |{" "}
+          </Link>
           <div className="flex-row flex pt-4">
             <div className="text-zinc-500">
               New To Netflix Clone ?
