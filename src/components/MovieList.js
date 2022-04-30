@@ -75,13 +75,17 @@ export default function MovieList({ category }) {
 
         {showDetails != null ? (
           <div
-            className="absolute lg:left-1/4  lg:right-1/2 lg:w-1/2  sm:m-2 transform bg-zinc-900 rounded-sm lg:top-10"
+            className="fixed lg:left-1/4  lg:right-1/2 lg:w-1/2  sm:m-2 transform bg-zinc-900 rounded-sm lg:top-10 z-50 overflow-y-auto"
             // style={{ marginTop: { scrollPosition } }}
           >
             <ReactPlayer width={-29} url={showDetails.trailerUrl} />
             {/* <img src={movie.thumbnail} className={"aspect-video w-72"} /> */}
 
             <div className="p-6" onClick={() => setShowDetails(null)}>
+              <button className="bg-red-600 text-white font-bold px-16 py-2 rounded-sm">
+                {" "}
+                Play
+              </button>
               <div className="flex justify-between py-2">
                 {/* Thumb icon */}
                 <svg
@@ -108,18 +112,13 @@ export default function MovieList({ category }) {
                 </svg>
               </div>
 
-              <div
-                className=" font-bold text-white py-2"
-                style={{ fontSize: 16 }}
-              >
+              <div className=" font-bold text-white py-2 text-xl">
                 {showDetails.title}
               </div>
-              <div
-                className=" font-bold text-gray-400"
-                style={{ fontSize: 14 }}
-              >
+              <div className=" font-normal text-gray-400">
                 {showDetails.description}
               </div>
+              <hr className="my-4" />
               <div
                 className="font-black text-gray-200 py-2"
                 style={{ fontSize: 14 }}

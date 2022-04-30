@@ -9,7 +9,7 @@ export default function Navbar({ username }) {
   )}callback`;
   return (
     <div>
-      <div className="p-2 justify-between flex flex-row">
+      <div className="p-2 justify-between flex flex-row align-middle">
         {/* <div className="text-2xl font-extrabold text-red-100">NETFLIX</div> */}
         <img alt="netflix logo" src={NETFLIX_URL} className="w-48"></img>
         <p className="text-white p-4 text-lg font-semibold">
