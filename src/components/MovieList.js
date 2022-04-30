@@ -57,7 +57,7 @@ export default function MovieList({ category }) {
         })}
 
         {showDetails != null ? (
-          <div className="absolute lg:left-1/4  lg:right-1/2 lg:w-1/2  sm:m-2 transform bg-zinc-900 rounded-sm">
+          <div className="absolute lg:left-1/4  lg:right-1/2 lg:w-1/2  sm:m-2 transform bg-zinc-900 rounded-sm lg:top-20">
             <ReactPlayer width={-29} url={showDetails.trailerUrl} />
             {/* <img src={movie.thumbnail} className={"aspect-video w-72"} /> */}
 
