@@ -15,7 +15,7 @@ export default function Navbar({ username }) {
   };
   return (
     <div>
-      <div className=" justify-between items-center flex flex-row align-middle  text-white">
+      <div className=" justify-between items-center flex sm:flex-row flex-col align-middle  text-white">
         {/* <div className="text-2xl font-extrabold text-red-100">NETFLIX</div> */}
         <img alt="netflix logo" src={NETFLIX_URL} className="w-48"></img>
 
@@ -56,7 +56,7 @@ export default function Navbar({ username }) {
           Watchlist
         </p>
 
-        <p className="text-white p-4 text-lg font-semibold">
+        <p className="text-white p-4 text-lg font-normal">
           Hello, {username?.split("@")[0] ?? "Guest"}
         </p>
 
