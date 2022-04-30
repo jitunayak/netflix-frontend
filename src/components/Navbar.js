@@ -9,9 +9,16 @@ export default function Navbar({ username }) {
   )}callback`;
   return (
     <div>
-      <div className="p-2 justify-between flex flex-row align-middle">
+      <div className="px-2 justify-between items-center flex flex-row align-middle text-white">
         {/* <div className="text-2xl font-extrabold text-red-100">NETFLIX</div> */}
         <img alt="netflix logo" src={NETFLIX_URL} className="w-48"></img>
+
+        <p className="bg-zinc-800 px-4 py-2 rounded-md font-semibold">Home</p>
+        <p>Movies</p>
+        <p>TV Shows</p>
+        <p>My List</p>
+        <p>Watchlist</p>
+
         <p className="text-white p-4 text-lg font-semibold">
           Hello, {username?.split("@")[0] ?? "Guest"}
         </p>
