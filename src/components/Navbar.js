@@ -10,12 +10,12 @@ export default function Navbar({ username }) {
 
   const [currentSelection, setCurrentSelection] = React.useState("Home");
   const styles = {
-    navbar: "bg-zinc-800 px-4 py-2 rounded-md font-semibold",
-    navbarHidden: "bg-black px-4 py-2 rounded-md font-semibold",
+    navbar: "bg-zinc-800 px-4 py-2 rounded-md font-semibold cursor-pointer",
+    navbarHidden: "bg-black px-4 py-2 rounded-md font-semibold cursor-pointer",
   };
   return (
     <div>
-      <div className=" justify-between items-center flex flex-row align-middle cursor-pointer text-white">
+      <div className=" justify-between items-center flex flex-row align-middle  text-white">
         {/* <div className="text-2xl font-extrabold text-red-100">NETFLIX</div> */}
         <img alt="netflix logo" src={NETFLIX_URL} className="w-48"></img>
 
