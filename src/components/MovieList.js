@@ -8,10 +8,9 @@ export default function MovieList({ category }) {
   const [movies, setMovies] = useState([]);
   const [showDetails, setShowDetails] = useState(null);
 
-
   useEffect(() => {
     setMovies(moviesDummy);
-    return () => { };
+    return () => {};
   }, []);
 
   //   useEffect(() => {
@@ -30,7 +29,8 @@ export default function MovieList({ category }) {
   return (
     <div>
       <h1 className="text-lg font-extrabold text-left px-2 text-white mx-2">
-        {category}      </h1>
+        {category}
+      </h1>
       <div className="flex  flex-row justify-start  overflow-x-auto scrollbar-hide scroll-smooth py-4">
         {movies.map((movie, index) => {
           return (
@@ -57,11 +57,11 @@ export default function MovieList({ category }) {
         })}
 
         {showDetails != null ? (
-          <div className="absolute lg:left-1/4  lg:right-1/2 lg:w-1/2  sm:m-2 transform bg-gray-800 rounded-sm">
+          <div className="absolute lg:left-1/4  lg:right-1/2 lg:w-1/2  sm:m-2 transform bg-zinc-900 rounded-sm">
             <ReactPlayer width={-29} url={showDetails.trailerUrl} />
             {/* <img src={movie.thumbnail} className={"aspect-video w-72"} /> */}
 
-            <div className="p-2" onClick={() => setShowDetails(null)}>
+            <div className="p-6" onClick={() => setShowDetails(null)}>
               <div className="flex justify-between py-2">
                 {/* Thumb icon */}
                 <svg
@@ -90,25 +90,25 @@ export default function MovieList({ category }) {
 
               <div
                 className=" font-bold text-white py-2"
-                style={{ fontSize: 14 }}
+                style={{ fontSize: 16 }}
               >
                 {showDetails.title}
               </div>
               <div
                 className=" font-bold text-gray-400"
-                style={{ fontSize: 12 }}
+                style={{ fontSize: 14 }}
               >
                 {showDetails.description}
               </div>
               <div
                 className="font-black text-gray-200 py-2"
-                style={{ fontSize: 12 }}
+                style={{ fontSize: 14 }}
               >
                 Rating: {showDetails.rating}
               </div>
               <div
-                className="text-xs font-black  text-gray-200"
-                style={{ fontSize: 12 }}
+                className="text-xs font-black  text-gray-200 bg-zinc-700 p-2 w-min rounded-2xl"
+                style={{ fontSize: 14 }}
               >
                 {showDetails.genre}
               </div>
