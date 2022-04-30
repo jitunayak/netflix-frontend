@@ -9,7 +9,11 @@ export default function MovieList({ category }) {
   const [showDetails, setShowDetails] = useState(null);
 
   useEffect(() => {
-    setMovies(moviesDummy);
+    let shuffledMovies = moviesDummy
+      .map((value) => ({ value, sort: Math.random() }))
+      .sort((a, b) => a.sort - b.sort)
+      .map(({ value }) => value);
+    setMovies(shuffledMovies);
     return () => {};
   }, []);
 
