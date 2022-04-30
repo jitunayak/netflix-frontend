@@ -38,7 +38,7 @@ export default function LoginScreen() {
 
   return (
     <div className="justify-center flex">
-      <div className="flex-col flex mt-10">
+      <div className="flex-col flex mt-10 rounded-sm">
         <img
           alt="netflix logo"
           src={NETFLIX_URL}
