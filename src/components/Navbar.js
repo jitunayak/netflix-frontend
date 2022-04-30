@@ -13,7 +13,7 @@ export default function Navbar({ username }) {
         {/* <div className="text-2xl font-extrabold text-red-100">NETFLIX</div> */}
         <img alt="netflix logo" src={NETFLIX_URL} className="w-48"></img>
         <p className="text-white p-4 text-lg font-semibold">
-          Hello, {username.split("@")[0]}
+          Hello, {username?.split("@")[0] ?? "Guest"}
         </p>
 
         {/* <button
