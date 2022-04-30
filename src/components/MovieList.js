@@ -32,7 +32,7 @@ export default function MovieList({ category }) {
 
   return (
     <div>
-      <h1 className="text-lg font-extrabold text-left px-2 text-white mx-2">
+      <h1 className="text-xl font-extrabold text-left px-2 text-white mx-2 mt-4">
         {category}
       </h1>
       <div className="flex  flex-row justify-start  overflow-x-auto scrollbar-hide scroll-smooth py-4">

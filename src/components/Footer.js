@@ -3,10 +3,10 @@ export default function Footer() {
     <footer className="bg-black text-white p-4 text-center bottom-0 left-0 right-0 overflow-hidden">
       <div className="flex flex-col justify-center">
         <p className="text-white text-xs" style={{ fontSize: 12 }}>
-          Netflix is a registered trademark of Netflix, Inc.
+          This is for educational purposes only
         </p>
         <p className="text-white" style={{ fontSize: 12 }}>
-          2021-2022- Netflix-Clone inc
+          2021-2022- Netflix-Clone Created By Jitu Nayak
         </p>
       </div>
     </footer>

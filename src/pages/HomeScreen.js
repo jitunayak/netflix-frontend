@@ -4,7 +4,7 @@ import Navbar from "../components/Navbar";
 
 export default function HomeScreen() {
   return (
-    <div className="">
+    <div className="mx-4">
       <Navbar />
       <MovieList category="Trending Now" />
       <MovieList category="New Releases" />

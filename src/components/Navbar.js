@@ -7,17 +7,54 @@ export default function Navbar({ username }) {
   const loginUrl = `https://netflix.auth.ap-south-1.amazoncognito.com/login?client_id=2v4q07qaad1jlugonm96akg1nk&response_type=token&scope=email+openid&redirect_uri=${encodeURIComponent(
     domain
   )}callback`;
+
+  const [currentSelection, setCurrentSelection] = React.useState("Home");
+  const styles = {
+    navbar: "bg-zinc-800 px-4 py-2 rounded-md font-semibold",
+    navbarHidden: "bg-black px-4 py-2 rounded-md font-semibold",
+  };
   return (
     <div>
-      <div className="px-2 justify-between items-center flex flex-row align-middle text-white">
+      <div className=" justify-between items-center flex flex-row align-middle cursor-pointer text-white">
         {/* <div className="text-2xl font-extrabold text-red-100">NETFLIX</div> */}
         <img alt="netflix logo" src={NETFLIX_URL} className="w-48"></img>
 
-        <p className="bg-zinc-800 px-4 py-2 rounded-md font-semibold">Home</p>
-        <p>Movies</p>
-        <p>TV Shows</p>
-        <p>My List</p>
-        <p>Watchlist</p>
+        <p
+          className={
+            currentSelection === "Home" ? styles.navbar : styles.navbarHidden
+          }
+          onClick={() => setCurrentSelection("Home")}
+        >
+          Home
+        </p>
+        <div
+          className={
+            currentSelection === "Movies" ? styles.navbar : styles.navbarHidden
+          }
+          onClick={() => setCurrentSelection("Movies")}
+        >
+          Movies
+        </div>
+        <p
+          className={
+            currentSelection === "TV Shows"
+              ? styles.navbar
+              : styles.navbarHidden
+          }
+          onClick={() => setCurrentSelection("TV Shows")}
+        >
+          TV Shows
+        </p>
+        <p
+          className={
+            currentSelection === "Watchlist"
+              ? styles.navbar
+              : styles.navbarHidden
+          }
+          onClick={() => setCurrentSelection("Watchlist")}
+        >
+          Watchlist
+        </p>
 
         <p className="text-white p-4 text-lg font-semibold">
           Hello, {username?.split("@")[0] ?? "Guest"}
