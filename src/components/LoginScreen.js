@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function LoginScreen() {
   const NETFLIX_URL =
@@ -58,7 +59,6 @@ export default function LoginScreen() {
               Enter a valid email or phone number
             </label>
           ) : null}
-
           <input
             className="bg-zinc-700 rounded-sm py-3 px-4  mt-4 text-base text-white"
             type="password"
@@ -71,13 +71,17 @@ export default function LoginScreen() {
               Minimum length should be 8 characters
             </label>
           ) : null}
-
           <button className="bg-red-600 hover:bg-red-700 rounded-sm py-2 px-2 mt-10 text-white font-bold text-lg ">
             Sign In
           </button>
+          <Link to="/home" className="text-white text-center pt-4">
+            Login as guest
+          </Link>{" "}
+          |{" "}
           <div className="flex-row flex py-10">
             <div className="text-zinc-500">
-              New Netflix Clone ?<div className="text-white">Sign up now</div>
+              New To Netflix Clone ?
+              <div className="text-white">Sign up now</div>
             </div>
           </div>
         </div>
