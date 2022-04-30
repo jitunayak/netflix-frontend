@@ -78,7 +78,7 @@ export default function LoginScreen() {
             Login as guest
           </Link>{" "}
           |{" "}
-          <div className="flex-row flex py-10">
+          <div className="flex-row flex py-6">
             <div className="text-zinc-500">
               New To Netflix Clone ?
               <div className="text-white">Sign up now</div>
