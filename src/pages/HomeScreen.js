@@ -8,6 +8,12 @@ export default function HomeScreen() {
       <Navbar />
       <MovieList category="Trending" />
       <MovieList category="New Releases" />
+      {/* <MovieList category="Trending" />
+      <MovieList category="New Releases" />
+      <MovieList category="Trending" />
+      <MovieList category="New Releases" />
+      <MovieList category="Trending" />
+      <MovieList category="New Releases" /> */}
       <Footer />
     </div>
   );

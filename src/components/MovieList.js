@@ -7,10 +7,24 @@ export default function MovieList({ category }) {
   const BASE_URL = "https://ct9wxby0v1.execute-api.ap-south-1.amazonaws.com";
   const [movies, setMovies] = useState([]);
   const [showDetails, setShowDetails] = useState(null);
+  const [videoPlayerPosition, setVideoPlayerPosition] = useState(0);
+
+  const [scrollPosition, setScrollPosition] = useState(0);
+  const handleScroll = () => {
+    const position = window.pageYOffset;
+    setScrollPosition(position);
+    // if (scrollPosition - videoPlayerPosition >= 100) {
+    //   setShowDetails(null);
+    // }
+    // console.log(videoPlayerPosition + " " + position);
+  };
 
   useEffect(() => {
     setMovies(moviesDummy);
-    return () => {};
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   //   useEffect(() => {
@@ -30,6 +44,8 @@ export default function MovieList({ category }) {
     <div>
       <h1 className="text-lg font-extrabold text-left px-2 text-white mx-2">
         {category}
+        {/* {scrollPosition} "="
+        {videoPlayerPosition} */}
       </h1>
       <div className="flex  flex-row justify-start  overflow-x-auto scrollbar-hide scroll-smooth py-4">
         {movies.map((movie, index) => {
@@ -43,6 +59,7 @@ export default function MovieList({ category }) {
               // onMouseLeave={() => setShowDetails(null)}
               onClick={() => {
                 setShowDetails(movie);
+                // setVideoPlayerPosition(window.pageYOffset);
               }}
             >
               {showDetails !== movie.movieId ? (
@@ -57,7 +74,10 @@ export default function MovieList({ category }) {
         })}
 
         {showDetails != null ? (
-          <div className="absolute lg:left-1/4  lg:right-1/2 lg:w-1/2  sm:m-2 transform bg-zinc-900 rounded-sm lg:top-20">
+          <div
+            className="absolute lg:left-1/4  lg:right-1/2 lg:w-1/2  sm:m-2 transform bg-zinc-900 rounded-sm lg:top-10"
+            // style={{ marginTop: { scrollPosition } }}
+          >
             <ReactPlayer width={-29} url={showDetails.trailerUrl} />
             {/* <img src={movie.thumbnail} className={"aspect-video w-72"} /> */}
 
