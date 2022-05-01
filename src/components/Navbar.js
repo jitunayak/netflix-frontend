@@ -37,6 +37,16 @@ export default function Navbar({ username }) {
         </div>
         <p
           className={
+            currentSelection === "New & Popular"
+              ? styles.navbar
+              : styles.navbarHidden
+          }
+          onClick={() => setCurrentSelection("New & Popular")}
+        >
+          New & Popular
+        </p>
+        <p
+          className={
             currentSelection === "TV Shows"
               ? styles.navbar
               : styles.navbarHidden
