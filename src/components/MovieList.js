@@ -32,15 +32,15 @@ export default function MovieList({ category }) {
 
   return (
     <div>
-      <h1 className="text-xl font-extrabold text-left px-2 text-white mx-2 mt-4">
+      <h1 className="text-xl font-extrabold text-left px-2 text-white mx-4 mt-2">
         {category}
       </h1>
-      <div className="flex  flex-row justify-start  overflow-x-auto scrollbar-hide scroll-smooth py-4">
+      <div className="flex  flex-row justify-start  overflow-x-auto scrollbar-hide scroll-smooth py-2">
         {movies.map((movie, index) => {
           return (
             <div
               key={movie.movieId}
-              className={"flex-shrink-0 w-72 mx-4 block rounded-sm "}
+              className={"flex-shrink-0 w-64 mx-2 block rounded-sm"}
               onClick={() => {
                 setShowDetails(movie);
               }}
@@ -49,7 +49,7 @@ export default function MovieList({ category }) {
                 <img
                   alt="thumbnail"
                   src={movie.thumbnail}
-                  className="aspect-video w-72 hover:shadow-lg hover:shadow-red-500/50 "
+                  className="aspect-video w-72 hover:shadow-lg hover:shadow-red-500/50 rounded-lg opacity-100"
                 ></img>
               ) : null}
             </div>
@@ -57,12 +57,11 @@ export default function MovieList({ category }) {
         })}
 
         {showDetails != null ? (
-          <div className="fixed lg:left-1/4  lg:right-1/2 lg:w-1/2  sm:m-2 transform bg-zinc-900 rounded-sm top-1 z-50 overflow-y-auto">
+          <div className="fixed lg:left-1/4  lg:right-1/2 lg:w-1/2  sm:m-2 transform bg-zinc-900 rounded-lg top-1 z-50 overflow-y-auto">
             <ReactPlayer width={-29} url={showDetails.trailerUrl} />
 
             <div className="p-6" onClick={() => setShowDetails(null)}>
               <button className="bg-red-600 text-white font-bold px-16 py-2 rounded-sm">
-                {" "}
                 Play
               </button>
               <div className="flex justify-between py-2">
