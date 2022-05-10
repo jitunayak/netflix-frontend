@@ -11,7 +11,8 @@ export default function Navbar({ username }) {
   const [currentSelection, setCurrentSelection] = React.useState("Home");
   const styles = {
     navbar: "bg-zinc-800 px-4 py-2 rounded-md font-semibold cursor-pointer",
-    navbarHidden: "bg-black px-4 py-2 rounded-md font-semibold cursor-pointer",
+    navbarHidden:
+      "bg-black px-4 py-2 rounded-md font-semibold cursor-pointer text-zinc-500",
   };
   return (
     <div>
