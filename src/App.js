@@ -1,11 +1,10 @@
-import logo from "./logo.svg";
 import "./App.css";
 import Navbar from "./components/Navbar";
 import MovieList from "./components/MovieList";
-import ScrollImages from "./components/ScrollImages";
 import { useState, useEffect } from "react";
 import { isExpired, decodeToken } from "react-jwt";
 import { setStoredToken, getStoredToken } from "./Utilities";
+import FetchVideo from "./FetchVideo";
 
 function App() {
   const [username, setUsername] = useState("");
@@ -14,14 +13,20 @@ function App() {
     domain
   )}callback`;
 
-  const currentDomain = encodeURIComponent(window.location.href);
-
   function getTokenFromCallbackUrl() {
     try {
-      const pathname = window.location.href.split("=");
-      const myDecodedToken = decodeToken(pathname[1]);
-      setStoredToken(myDecodedToken);
-      return myDecodedToken;
+      const url = window.location.href;
+      // const access_token = url.match(/(access_token)\=([\S\s]*?)\&/)[2];
+      const access_token = window.location.href
+        .match(/(access_token)\=([\S\s]*?)\&/)[0]
+        .split("=")[1]
+        .split("&")[0];
+      //const myDecodedToken = decodeToken(pathname[1]);
+      //console.log(pathname);
+      //setStoredToken(myDecodedToken);
+      setStoredToken(access_token);
+      console.log(access_token);
+      return access_token;
     } catch (err) {
       return null;
     }
@@ -32,18 +37,16 @@ function App() {
     //   window.open(loginUrl, "_self");
     // }
 
-    //https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/loading-browser-credentials-cognito.html
-
     if (getStoredToken() === null && getTokenFromCallbackUrl() === null) {
       window.open(loginUrl, "_self");
       console.log("token is null");
       setUsername("No User was found");
     } else {
-      setUsername(getStoredToken().email);
-      if (getTokenFromCallbackUrl() !== null) {
-        console.log(domain.split("callback")[0]);
-        window.open(domain.split("callback")[0], "_self");
-      }
+      setUsername("hello");
+      // if (getTokenFromCallbackUrl() !== null) {
+      //   console.log(domain.split("callback")[0]);
+      //   window.open(domain.split("callback")[0], "_self");
+      // }
     }
     return () => {};
   }, []);
@@ -51,8 +54,9 @@ function App() {
   return (
     <div className="bg-black">
       <Navbar />
+      <FetchVideo />
       <h1 className="text-white text-lg">Hello, {username}</h1>
-      <MovieList />
+      {/* <MovieList /> */}
     </div>
   );
 }
