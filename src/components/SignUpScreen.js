@@ -12,14 +12,13 @@ export default function SignUpScreen() {
   const [isCodeSent, setIsCodeSent] = useState(false);
 
   return (
-    <div className="justify-center flex">
-      <div className="flex-col flex mt-10 rounded-sm"></div>
+    <div className="grid place-items-center h-screen">
       <div className="flex-col flex w-96 bg-zinc-900 p-8 rounded-sm">
         <div className="text-white font-extrabold text-2xl">Sign Up</div>
         {!isCodeSent && (
           <>
             <input
-              className="bg-zinc-700 rounded-sm py-3 px-4  mt-6 text-base text-white "
+              className="bg-zinc-700 rounded-sm py-2 px-4  mt-6 text-base text-white "
               type="email"
               inputMode="email"
               placeholder="Email or phone number"
@@ -27,7 +26,7 @@ export default function SignUpScreen() {
               onChange={(e) => setUsername(e.target.value)}
             />
             <input
-              className="bg-zinc-700 rounded-sm py-3 px-4  mt-6 text-base text-white "
+              className="bg-zinc-700 rounded-sm py-2 px-4  mt-6 text-base text-white "
               type="password"
               inputMode="password"
               placeholder="Password"
@@ -35,7 +34,7 @@ export default function SignUpScreen() {
               onChange={(e) => setPassword(e.target.value)}
             />
             <input
-              className="bg-zinc-700 rounded-sm py-3 px-4  mt-6 text-base text-white "
+              className="bg-zinc-700 rounded-sm py-2 px-4  mt-6 text-base text-white "
               type="password"
               inputMode="password"
               placeholder="Re Enter Password"
@@ -43,7 +42,7 @@ export default function SignUpScreen() {
               onChange={(e) => setConfirmPassword(e.target.value)}
             />
             <button
-              className="bg-red-600 hover:bg-red-700 rounded-sm py-2 px-2 mt-10 text-white font-bold text-lg"
+              className="bg-red-600 hover:bg-red-700 rounded-sm py-1 px-2 mt-10 text-white font-bold text-lg"
               onClick={() => setIsCodeSent(!isCodeSent)}
             >
               Send Code
@@ -53,13 +52,13 @@ export default function SignUpScreen() {
         {isCodeSent && (
           <>
             <input
-              className="bg-zinc-700 rounded-sm py-3 px-4  mt-6 text-base text-white "
+              className="bg-zinc-700 rounded-sm py-2 px-4  mt-6 text-base text-white "
               placeholder="Confirmation Code e.g 2345"
               value={confirmCode}
               onChange={(e) => setConfirmCode(e.target.value)}
             />
             <button
-              className="bg-red-600 hover:bg-red-700 rounded-sm py-2 px-2 mt-10 text-white font-bold text-lg "
+              className="bg-red-600 hover:bg-red-700 rounded-sm py-1 px-2 mt-10 text-white font-bold text-lg "
               onClick={() => naviagte("/login")}
             >
               Confirm Code

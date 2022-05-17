@@ -37,17 +37,17 @@ export default function LoginScreen() {
   };
 
   return (
-    <div className="justify-center flex">
-      <div className="flex-col flex mt-10 rounded-sm">
+    <div className="grid place-items-center h-screen">
+      <div className="flex-col flex rounded-sm">
         <img
           alt="netflix logo"
           src={NETFLIX_URL}
-          className="w-72 h-40 self-center"
+          className="w-60 h-36 self-center"
         ></img>
         <div className="flex-col flex w-96 bg-zinc-900 p-8 rounded-sm">
           <div className="text-white font-extrabold text-2xl">Sign In</div>
           <input
-            className="bg-zinc-700 rounded-sm py-3 px-4  mt-6 text-base text-white "
+            className="bg-zinc-700 rounded-sm py-2 px-4  mt-6 text-base text-white "
             type="email"
             inputMode="email"
             placeholder="Email or phone number"
@@ -60,7 +60,7 @@ export default function LoginScreen() {
             </label>
           ) : null}
           <input
-            className="bg-zinc-700 rounded-sm py-3 px-4  mt-4 text-base text-white"
+            className="bg-zinc-700 rounded-sm py-2 px-4  mt-4 text-base text-white"
             type="password"
             placeholder="Password"
             value={password}
@@ -71,7 +71,7 @@ export default function LoginScreen() {
               Minimum length should be 8 characters
             </label>
           ) : null}
-          <button className="bg-red-600 hover:bg-red-700 rounded-sm py-2 px-2 mt-10 text-white font-bold text-lg ">
+          <button className="bg-red-600 hover:bg-red-700 rounded-sm py-1 px-2 mt-10 text-white font-bold text-lg ">
             Sign In
           </button>
           <Link to="/home" className="text-white text-center pt-4">
