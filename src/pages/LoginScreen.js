@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import Footer from "../components/Footer";
 
 export default function LoginScreen() {
   const NETFLIX_URL =
@@ -79,13 +80,15 @@ export default function LoginScreen() {
           </Link>
           <div className="flex-row flex pt-10">
             <div className="text-zinc-500">
-              New To Netflix Clone ?
+              New To Netflix Clone?
               <Link to="/signup" className="text-white">
+                {" "}
                 Sign up now
               </Link>
             </div>
           </div>
         </div>
+        <Footer />
       </div>
     </div>
   );
