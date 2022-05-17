@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+// import toast, { Toaster } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 
 export default function SignUpScreen() {
@@ -11,8 +12,15 @@ export default function SignUpScreen() {
 
   const [isCodeSent, setIsCodeSent] = useState(false);
 
+  const isPasswordSame = () => {
+    return password.length === 0 ||
+      confirmPassword.length === 0 ||
+      password !== confirmPassword
+      ? false
+      : true;
+  };
   return (
-    <div className="grid place-items-center h-screen">
+    <div className="flex justify-center items-center h-screen">
       <div className="flex-col flex w-96 bg-zinc-900 p-8 rounded-sm">
         <div className="text-white font-extrabold text-2xl">Sign Up</div>
         {!isCodeSent && (
@@ -41,9 +49,17 @@ export default function SignUpScreen() {
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
             />
+            {!isPasswordSame() ? (
+              <label className="text-red-400  text-sm py-1">
+                Password Didn't Match
+              </label>
+            ) : null}
             <button
               className="bg-red-600 hover:bg-red-700 rounded-sm py-1 px-2 mt-10 text-white font-bold text-lg"
-              onClick={() => setIsCodeSent(!isCodeSent)}
+              onClick={() => {
+                // eslint-disable-next-line no-unused-expressions
+                isPasswordSame() ? setIsCodeSent(!isCodeSent) : null;
+              }}
             >
               Send Code
             </button>

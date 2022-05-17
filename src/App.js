@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 import { setStoredToken, getStoredToken } from "./Utilities";
 import Footer from "./components/Footer";
 import LoginScreen from "./components/LoginScreen";
+import toast, { Toaster } from "react-hot-toast";
 
 function App() {
   const [username, setUsername] = useState("");
@@ -55,6 +56,7 @@ function App() {
       <MovieList category="New Releases" />
       <Footer /> */}
 
+      <Toaster />
       <LoginScreen />
       <Footer />
     </div>
