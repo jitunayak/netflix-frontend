@@ -7,6 +7,7 @@ import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LoginScreen from "./components/LoginScreen";
 import HomeScreen from "./pages/HomeScreen";
+import SignUpScreen from "./components/SignUpScreen";
 
 render(
   <React.StrictMode>
@@ -15,6 +16,7 @@ render(
         <Route path="/" element={<LoginScreen />} />
         <Route path="/login" element={<LoginScreen />} />
         <Route path="/home" element={<HomeScreen />} />
+        <Route path="/signup" element={<SignUpScreen />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>,

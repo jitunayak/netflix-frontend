@@ -80,7 +80,9 @@ export default function LoginScreen() {
           <div className="flex-row flex pt-10">
             <div className="text-zinc-500">
               New To Netflix Clone ?
-              <div className="text-white">Sign up now</div>
+              <Link to="/signup" className="text-white">
+                Sign up now
+              </Link>
             </div>
           </div>
         </div>
