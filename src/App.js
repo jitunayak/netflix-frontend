@@ -5,28 +5,26 @@ import { useState, useEffect } from "react";
 //import { isExpired, decodeToken } from "react-jwt";
 import { setStoredToken, getStoredToken } from "./Utilities";
 import Footer from "./components/Footer";
-import LoginScreen from "./components/LoginScreen";
+import LoginScreen from "./pages/LoginScreen";
 import toast, { Toaster } from "react-hot-toast";
 
+import { Amplify } from "aws-amplify";
+
+import { withAuthenticator } from "@aws-amplify/ui-react";
+import "@aws-amplify/ui-react/styles.css";
+
+import awsconfig from "./aws-exports";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import HomeScreen from "./pages/HomeScreen";
+import SignUpScreen from "./pages/SignUpScreen";
+Amplify.configure(awsconfig);
+
 function App() {
-  const [username, setUsername] = useState("");
-  const domain = window.location.href;
-  const loginUrl = `https://netflix.auth.ap-south-1.amazoncognito.com/login?client_id=2v4q07qaad1jlugonm96akg1nk&response_type=token&scope=email+openid&redirect_uri=${encodeURIComponent(
-    domain
-  )}callback`;
-
-  // const currentDomain = encodeURIComponent(window.location.href);
-
-  // function getTokenFromCallbackUrl() {
-  //   try {
-  //     const pathname = window.location.href.split("=");
-  //     const myDecodedToken = decodeToken(pathname[1]);
-  //     setStoredToken(myDecodedToken);
-  //     return myDecodedToken;
-  //   } catch (err) {
-  //     return null;
-  //   }
-  // }
+  // const [username, setUsername] = useState("");
+  // const domain = window.location.href;
+  // const loginUrl = `https://netflix.auth.ap-south-1.amazoncognito.com/login?client_id=2v4q07qaad1jlugonm96akg1nk&response_type=token&scope=email+openid&redirect_uri=${encodeURIComponent(
+  //   domain
+  // )}callback`;
 
   useEffect(() => {
     // if (isExpired(getToken())) {
@@ -50,16 +48,14 @@ function App() {
   }, []);
 
   return (
-    <div className="bg-black">
-      {/* <Navbar username={username.split("@")[0]} />
-      <MovieList category="Trending" />
-      <MovieList category="New Releases" />
-      <Footer /> */}
-
-      <Toaster />
-      <LoginScreen />
-      <Footer />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<LoginScreen />} />
+        <Route path="/login" element={<LoginScreen />} />
+        <Route path="/home" element={<HomeScreen />} />
+        <Route path="/signup" element={<SignUpScreen />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

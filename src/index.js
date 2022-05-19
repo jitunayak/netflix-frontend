@@ -7,17 +7,16 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LoginScreen from "./pages/LoginScreen";
 import SignUpScreen from "./pages/SignUpScreen";
 import HomeScreen from "./pages/HomeScreen";
+import App from "./App";
+
+import awsconfig from "./aws-exports.js";
+import Amplify from "aws-amplify";
+
+Amplify.configure(awsconfig);
 
 render(
   <React.StrictMode>
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<LoginScreen />} />
-        <Route path="/login" element={<LoginScreen />} />
-        <Route path="/home" element={<HomeScreen />} />
-        <Route path="/signup" element={<SignUpScreen />} />
-      </Routes>
-    </BrowserRouter>
+    <App />
   </React.StrictMode>,
   document.getElementById("root")
 );

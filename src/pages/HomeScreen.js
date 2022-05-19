@@ -1,8 +1,27 @@
+import { withAuthenticator } from "@aws-amplify/ui-react";
+import { Auth } from "aws-amplify";
 import Footer from "../components/Footer";
 import MovieList from "../components/MovieList";
 import Navbar from "../components/Navbar";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
-export default function HomeScreen() {
+function HomeScreen() {
+  const navigate = useNavigate();
+
+  const isUserIsAuthenticated = async () => {
+    try {
+      const currentSession = await Auth.currentAuthenticatedUser();
+      console.log(currentSession);
+    } catch (error) {
+      navigate("/login");
+    }
+  };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  useEffect(() => {
+    isUserIsAuthenticated();
+  });
+
   return (
     <div className="mx-4">
       <Navbar />
@@ -18,3 +37,5 @@ export default function HomeScreen() {
     </div>
   );
 }
+
+export default HomeScreen;
