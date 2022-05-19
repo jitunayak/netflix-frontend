@@ -1,3 +1,4 @@
+import { Auth } from "aws-amplify";
 import React, { useState } from "react";
 // import toast, { Toaster } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
@@ -12,6 +13,16 @@ export default function SignUpScreen() {
 
   const [isCodeSent, setIsCodeSent] = useState(false);
 
+  const signUpUser = async () => {
+    if (!isPasswordSame) return;
+    try {
+      await Auth.signUp(username, password);
+      setIsCodeSent(!isCodeSent);
+    } catch (err) {
+      console.log(err);
+      alert(err);
+    }
+  };
   const isPasswordSame = () => {
     return password.length === 0 ||
       confirmPassword.length === 0 ||
@@ -56,9 +67,9 @@ export default function SignUpScreen() {
             ) : null}
             <button
               className="bg-red-600 hover:bg-red-700 rounded-sm py-1 px-2 mt-10 text-white font-bold text-lg"
-              onClick={() => {
+              onClick={async () => {
                 // eslint-disable-next-line no-unused-expressions
-                isPasswordSame() ? setIsCodeSent(!isCodeSent) : null;
+                (await signUpUser()) ? setIsCodeSent(!isCodeSent) : null;
               }}
             >
               Send Code
