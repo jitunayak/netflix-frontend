@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@aws-amplify/ui-react": "^2.18.0",
+    "aws-amplify": "^4.3.22",
     "axios": "^0.24.0",
     "react": "18.0.0",
     "react-dom": "18.0.0",

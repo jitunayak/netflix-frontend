@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-netflixfrontend-dev-205212-authRole",
+      "UnauthRoleArn": "arn:aws:iam::967217736102:role/amplify-netflixfrontend-dev-205212-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::967217736102:role/amplify-netflixfrontend-dev-205212-authRole",
+      "Region": "ap-south-1",
+      "DeploymentBucketName": "amplify-netflixfrontend-dev-205212-deployment",
+      "UnauthRoleName": "amplify-netflixfrontend-dev-205212-unauthRole",
+      "StackName": "amplify-netflixfrontend-dev-205212",
+      "StackId": "arn:aws:cloudformation:ap-south-1:967217736102:stack/amplify-netflixfrontend-dev-205212/767eeff0-d787-11ec-a4f4-02a6cdd6c3a2",
+      "AmplifyAppId": "dkxcqtlz2l3h4"
+    },
+    "categories": {
+      "auth": {
+        "netflixfrontend8fe8490d": {}
+      }
+    }
+  }
+}
