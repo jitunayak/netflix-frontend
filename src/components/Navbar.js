@@ -1,4 +1,6 @@
+import { Auth } from "aws-amplify";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Navbar({ username }) {
   const NETFLIX_URL =
@@ -14,6 +16,16 @@ export default function Navbar({ username }) {
     navbar: "bg-zinc-800 px-4 py-2 rounded-md font-semibold cursor-pointer",
     navbarHidden:
       "bg-black px-4 py-2 rounded-md font-semibold cursor-pointer text-zinc-500",
+  };
+
+  const navigate = useNavigate();
+  const signOut = () => {
+    try {
+      Auth.signOut();
+      navigate("/login");
+    } catch (err) {
+      alert(err);
+    }
   };
   return (
     <div>
@@ -68,7 +80,10 @@ export default function Navbar({ username }) {
           Watchlist
         </p>
 
-        <p className="text-white p-4 text-lg font-normal">
+        <p
+          onClick={() => signOut()}
+          className="text-white p-4 text-lg font-normal cursor-pointer"
+        >
           Hello, {username?.split("@")[0] ?? "Guest"}
         </p>
 
