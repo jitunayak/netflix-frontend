@@ -40,7 +40,9 @@ export default function MovieList({ category }) {
           return (
             <div
               key={movie.movieId}
-              className={"flex-shrink-0 w-64 mx-2 block rounded-sm"}
+              className={
+                "flex-shrink-0 w-64 mx-2 block rounded-sm hover:scale-110 transition ease-out"
+              }
               onClick={() => {
                 setShowDetails(movie);
               }}
@@ -49,7 +51,7 @@ export default function MovieList({ category }) {
                 <img
                   alt="thumbnail"
                   src={movie.thumbnail}
-                  className="aspect-video w-72 hover:shadow-lg hover:shadow-red-500/50 rounded-lg opacity-100"
+                  className="aspect-video w-72 hover:shadow-lg rounded-lg opacity-100"
                 ></img>
               ) : null}
             </div>
