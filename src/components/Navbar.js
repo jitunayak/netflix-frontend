@@ -28,9 +28,9 @@ export default function Navbar({ username }) {
     }
   };
   return (
-    <div className="px-6 justify-between items-center flex sm:flex-row flex-col align-middle  text-white">
+    <div className="px-6 justify-between items-center flex flex-wrap  align-middle  text-white">
       {/* <div className="text-2xl font-extrabold text-red-100">NETFLIX</div> */}
-      <img alt="netflix logo" src={NETFLIX_URL} className="w-48 "></img>
+      <img alt="netflix logo" src={NETFLIX_URL} className="w-48"></img>
 
       <p
         className={
