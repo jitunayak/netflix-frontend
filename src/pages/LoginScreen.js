@@ -2,6 +2,7 @@ import { Auth } from "aws-amplify";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Footer from "../components/Footer";
+import Loader from "../components/Loader";
 
 export default function LoginScreen() {
   const NETFLIX_URL =
@@ -10,14 +11,18 @@ export default function LoginScreen() {
   const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const singIn = async (e) => {
+    setIsLoading(true);
     e.preventDefault();
     try {
       await Auth.signIn(username, password);
+      setIsLoading(false);
       navigate("/home");
     } catch (err) {
       alert(err);
+      setIsLoading(false);
     }
   };
 
@@ -91,7 +96,7 @@ export default function LoginScreen() {
               onClick={(e) => singIn(e)}
               className="bg-red-600 hover:bg-red-700 rounded-sm py-1 px-2 mt-10 text-white font-bold text-lg "
             >
-              Sign In
+              {isLoading && <Loader />} Sign In
             </button>
             <Link to="/home" className="text-white text-center pt-4">
               Login as guest
