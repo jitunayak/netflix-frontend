@@ -29,7 +29,7 @@ function HomeScreen() {
     <div className="">
       <Navbar username={userName} />
       <Banner />
-      <div className=" lg:mx-8">
+      <div className="lg:mx-8">
         <MovieList category="Trending Now" />
         <MovieList category="New Releases" />
         <MovieList category="Only On Netflix" />

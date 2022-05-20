@@ -71,7 +71,7 @@ export const moviesDummy = [
     description:
       "The Order of the Phoenix is a fantasy drama film directed by David Yates, written by David Greenwalt and starring Tom Cruise, Morgan Freeman, Henry Czerny, and Michael Caine.",
     thumbnail:
-      "  https://gadgetfreeks.com/wp-content/uploads/2020/04/The-Order-Season-2.jpeg",
+      "https://gadgetfreeks.com/wp-content/uploads/2020/04/The-Order-Season-2.jpeg",
     genre: "Thriller",
     title: "The Order",
     trailerUrl: "https://www.youtube.com/watch?v=iD-cFgDDuqM",

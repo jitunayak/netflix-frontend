@@ -75,12 +75,19 @@ export default function Navbar({ username }) {
         Watchlist
       </p>
 
-      <p
-        onClick={() => signOut()}
-        className="text-white p-4 text-lg font-normal cursor-pointer"
-      >
-        Hello, {username?.split("@")[0] ?? "Guest"}
-      </p>
+      <div className="flex flex-row justify-center items-center">
+        <img
+          alt="profile"
+          className="w-8 h-8"
+          src="https://occ-0-2041-3662.1.nflxso.net/art/0d282/eb648e0fd0b2676dbb7317310a48f9bdc2b0d282.png"
+        />
+        <p
+          onClick={() => signOut()}
+          className="text-white p-4 text-lg font-normal cursor-pointer"
+        >
+          {username?.split("@")[0] ?? "Guest"}
+        </p>
+      </div>
 
       {/* <button
           className="text-white  self-center text-sm"
