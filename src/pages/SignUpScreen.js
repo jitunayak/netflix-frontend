@@ -13,6 +13,16 @@ export default function SignUpScreen() {
 
   const [isCodeSent, setIsCodeSent] = useState(false);
 
+  const verifyUserEmail = async () => {
+    try {
+      const emailVerify = Auth.confirmSignUp(username, confirmCode);
+      console.log(emailVerify);
+      alert("Your account is verified sucessfully");
+    } catch (err) {
+      alert(err);
+    }
+  };
+
   const signUpUser = async () => {
     if (!isPasswordSame) return;
     try {
@@ -86,7 +96,7 @@ export default function SignUpScreen() {
             />
             <button
               className="bg-red-600 hover:bg-red-700 rounded-sm py-1 px-2 mt-10 text-white font-bold text-lg "
-              onClick={() => naviagte("/login")}
+              onClick={() => verifyUserEmail()}
             >
               Confirm Code
             </button>
