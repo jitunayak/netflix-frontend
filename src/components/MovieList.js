@@ -41,7 +41,7 @@ export default function MovieList({ category }) {
             <div
               key={movie.movieId}
               className={
-                "flex-shrink-0 w-64 mx-2 block rounded-sm hover:scale-110 transition ease-out"
+                "flex-shrink-0 w-64 mx-2 my-4 block rounded-sm hover:scale-110 transition ease-out cursor-pointer min-w-[180px] md:min-w-[260px]"
               }
               onClick={() => {
                 setShowDetails(movie);

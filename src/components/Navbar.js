@@ -3,10 +3,11 @@ import React from "react";
 export default function Navbar({ username }) {
   const NETFLIX_URL =
     "https://assets.brand.microsites.netflix.io/assets/7dc497e2-4975-11ec-a9ce-066b49664af6_cm_1440w.jpg?v=1";
-  const domain = window.location.href;
-  const loginUrl = `https://netflix.auth.ap-south-1.amazoncognito.com/login?client_id=2v4q07qaad1jlugonm96akg1nk&response_type=token&scope=email+openid&redirect_uri=${encodeURIComponent(
-    domain
-  )}callback`;
+
+  // const domain = window.location.href;
+  // const loginUrl = `https://netflix.auth.ap-south-1.amazoncognito.com/login?client_id=2v4q07qaad1jlugonm96akg1nk&response_type=token&scope=email+openid&redirect_uri=${encodeURIComponent(
+  //   domain
+  // )}callback`;
 
   const [currentSelection, setCurrentSelection] = React.useState("Home");
   const styles = {

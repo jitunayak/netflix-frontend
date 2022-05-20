@@ -5,14 +5,16 @@ import MovieList from "../components/MovieList";
 import Navbar from "../components/Navbar";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 function HomeScreen() {
   const navigate = useNavigate();
-
+  const [userName, setUserName] = useState("");
   const isUserIsAuthenticated = async () => {
     try {
       const currentSession = await Auth.currentAuthenticatedUser();
-      console.log(currentSession);
+      setUserName(currentSession.attributes.email.split("@")[0]);
+      return currentSession;
     } catch (error) {
       navigate("/login");
     }
@@ -24,7 +26,7 @@ function HomeScreen() {
 
   return (
     <div className="mx-4">
-      <Navbar />
+      <Navbar username={userName} />
       <MovieList category="Trending Now" />
       <MovieList category="New Releases" />
       <MovieList category="Only On Netflix" />
