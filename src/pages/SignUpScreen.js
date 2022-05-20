@@ -2,9 +2,10 @@ import { Auth } from "aws-amplify";
 import React, { useState } from "react";
 // import toast, { Toaster } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import Loader from "../components/Loader";
 
 export default function SignUpScreen() {
-  const naviagte = useNavigate();
+  const navigate = useNavigate();
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -12,30 +13,38 @@ export default function SignUpScreen() {
   const [confirmCode, setConfirmCode] = useState("");
 
   const [isCodeSent, setIsCodeSent] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const verifyUserEmail = async () => {
+    setIsLoading(true);
     try {
       const emailVerify = Auth.confirmSignUp(username, confirmCode);
       console.log(emailVerify);
       alert("Your account is verified sucessfully");
+      setIsLoading(false);
+      navigate("/login");
     } catch (err) {
       alert(err);
+      setIsLoading(false);
     }
   };
 
   const signUpUser = async () => {
     if (!isPasswordSame) return;
+    setIsLoading(true);
     try {
       await Auth.signUp(username, password);
       setIsCodeSent(!isCodeSent);
+      setIsLoading(false);
     } catch (err) {
       console.log(err);
       alert(err);
+      setIsLoading(false);
     }
   };
   const isPasswordSame = () => {
-    return password.length === 0 ||
-      confirmPassword.length === 0 ||
+    return password.length > 0 ||
+      confirmPassword.length > 0 ||
       password !== confirmPassword
       ? false
       : true;
@@ -82,7 +91,7 @@ export default function SignUpScreen() {
                 (await signUpUser()) ? setIsCodeSent(!isCodeSent) : null;
               }}
             >
-              Send Code
+              {isLoading && <Loader />} Send Code
             </button>
           </>
         )}
@@ -98,7 +107,7 @@ export default function SignUpScreen() {
               className="bg-red-600 hover:bg-red-700 rounded-sm py-1 px-2 mt-10 text-white font-bold text-lg "
               onClick={() => verifyUserEmail()}
             >
-              Confirm Code
+              {isLoading && <Loader />} Confirm Code
             </button>
           </>
         )}
