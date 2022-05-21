@@ -3,7 +3,8 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Footer from "../components/Footer";
 import Loader from "../components/Loader";
-
+import NetflixLogo from "./../assets/netflix-logo.png";
+import LoginCover from "./../assets/login-cover.jpg";
 export default function LoginScreen() {
   const NETFLIX_URL =
     "http://assets.stickpng.com/images/580b57fcd9996e24bc43c529.png";
@@ -62,7 +63,8 @@ export default function LoginScreen() {
       <img
         alt="banner"
         className="w-screen h-screen absolute opacity-40 object-cover"
-        src="https://img.wallpapersafari.com/desktop/1680/1050/24/74/zgeTuV.jpg"
+        //src="https://img.wallpapersafari.com/desktop/1680/1050/24/74/zgeTuV.jpg"
+        src={LoginCover}
       />
       <form className="absolute">
         <div className="flex justify-center items-center h-screen">
@@ -70,7 +72,7 @@ export default function LoginScreen() {
             <div className="flex-col w-96 flex bg-zinc-900 p-10 rounded-sm opacity-90">
               <img
                 alt="netflix logo"
-                src={NETFLIX_URL}
+                src={NetflixLogo}
                 className="w-60 h-36 self-center"
               ></img>
               <div className="text-white font-extrabold text-2xl">Sign In</div>
@@ -103,7 +105,7 @@ export default function LoginScreen() {
                 type="submit"
                 onSubmit={(e) => e.preventDefault()}
                 onClick={(e) => singIn(e)}
-                className="bg-red-600 hover:bg-red-700 rounded-sm py-1 px-2 mt-10 text-white font-bold text-lg "
+                className="bg-red-600 hover:bg-red-700 rounded-sm py-1 px-2 mt-10 text-white font-bold text-lg"
               >
                 {isLoading && <Loader />} Sign In
               </button>
