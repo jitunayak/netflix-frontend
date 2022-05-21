@@ -60,7 +60,7 @@ export default function MovieList({ category }) {
 
         {showDetails != null ? (
           <div className="fixed lg:left-1/4  lg:right-1/2 lg:w-1/2  sm:m-2 transform bg-zinc-900 rounded-lg top-1 z-50 overflow-y-auto">
-            <ReactPlayer width={-29} url={showDetails.trailerUrl} />
+            <ReactPlayer width={-29} url={showDetails.trailerUrl} playing />
 
             <div className="p-6" onClick={() => setShowDetails(null)}>
               <button className="bg-red-600 text-white font-bold px-16 py-2 rounded-sm">
