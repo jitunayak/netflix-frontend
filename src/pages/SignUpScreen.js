@@ -3,6 +3,9 @@ import React, { useState } from "react";
 // import toast, { Toaster } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import Loader from "../components/Loader";
+import { Button } from "../elements/Button";
+import { Card, Center, InputBox } from "../elements/Layout";
+import { Title } from "../elements/Text";
 
 export default function SignUpScreen() {
   const navigate = useNavigate();
@@ -50,29 +53,26 @@ export default function SignUpScreen() {
       : true;
   };
   return (
-    <div className="flex justify-center items-center h-screen">
-      <div className="flex-col flex w-96 bg-zinc-900 p-8 rounded-sm">
-        <div className="text-white font-extrabold text-2xl">Sign Up</div>
+    <Center>
+      <Card>
+        <Title>Sign Up</Title>
         {!isCodeSent && (
           <>
-            <input
-              className="bg-zinc-700 rounded-sm py-2 px-4  mt-6 text-base text-white "
+            <InputBox
               type="email"
               inputMode="email"
               placeholder="Email or phone number"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
             />
-            <input
-              className="bg-zinc-700 rounded-sm py-2 px-4  mt-6 text-base text-white "
+            <InputBox
               type="password"
               inputMode="password"
               placeholder="Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
-            <input
-              className="bg-zinc-700 rounded-sm py-2 px-4  mt-6 text-base text-white "
+            <InputBox
               type="password"
               inputMode="password"
               placeholder="Re Enter Password"
@@ -84,34 +84,30 @@ export default function SignUpScreen() {
                 Password Didn't Match
               </label>
             ) : null}
-            <button
-              className="bg-red-600 hover:bg-red-700 rounded-sm py-1 px-2 mt-10 text-white font-bold text-lg"
+            <Button
+              primary={false}
               onClick={async () => {
                 // eslint-disable-next-line no-unused-expressions
                 (await signUpUser()) ? setIsCodeSent(!isCodeSent) : null;
               }}
             >
               {isLoading && <Loader />} Send Code
-            </button>
+            </Button>
           </>
         )}
         {isCodeSent && (
           <>
-            <input
-              className="bg-zinc-700 rounded-sm py-2 px-4  mt-6 text-base text-white "
+            <InputBox
               placeholder="Confirmation Code e.g 2345"
               value={confirmCode}
               onChange={(e) => setConfirmCode(e.target.value)}
             />
-            <button
-              className="bg-red-600 hover:bg-red-700 rounded-sm py-1 px-2 mt-10 text-white font-bold text-lg "
-              onClick={() => verifyUserEmail()}
-            >
+            <Button primary={true} onClick={() => verifyUserEmail()}>
               {isLoading && <Loader />} Confirm Code
-            </button>
+            </Button>
           </>
         )}
-      </div>
-    </div>
+      </Card>
+    </Center>
   );
 }

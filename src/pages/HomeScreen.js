@@ -26,7 +26,7 @@ function HomeScreen() {
   });
 
   return (
-    <div className="">
+    <>
       <Navbar username={userName} />
       <Banner />
       <div className="lg:mx-8">
@@ -40,7 +40,7 @@ function HomeScreen() {
         <MovieList category="US TV Dramas" />
         <Footer />
       </div>
-    </div>
+    </>
   );
 }
 
