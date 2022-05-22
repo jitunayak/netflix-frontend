@@ -1,4 +1,4 @@
-function Loader({ color }) {
+function Loader() {
   return (
     <svg
       role="status"

@@ -8,15 +8,20 @@ import LoginCover from "./../assets/login-cover.jpg";
 import { Card, Center, InputBox } from "../elements/Layout";
 import { Title } from "../elements/Text";
 import { Button } from "../elements/Button";
+import * as React from "react";
 
 export default function LoginScreen() {
-  const NETFLIX_URL =
-    "http://assets.stickpng.com/images/580b57fcd9996e24bc43c529.png";
+  // const NETFLIX_URL =
+  //   "http://assets.stickpng.com/images/580b57fcd9996e24bc43c529.png";
 
   const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+
+  /**
+   * @typedef {any}
+   */
 
   const singIn = async (e) => {
     setIsLoading(true);
@@ -75,7 +80,7 @@ export default function LoginScreen() {
               src={NetflixLogo}
               className="w-60 h-36 self-center"
             ></img>
-            <Title>Sign In</Title>
+            <Title>Sign In 2</Title>
             <InputBox
               type="email"
               inputMode="email"
@@ -89,7 +94,6 @@ export default function LoginScreen() {
               </label>
             ) : null}
             <InputBox
-              className="bg-zinc-700 rounded-sm py-2 px-4  mt-4 text-base text-white"
               type="password"
               placeholder="Password"
               value={password}

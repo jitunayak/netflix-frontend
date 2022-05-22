@@ -1,12 +1,12 @@
-import { withAuthenticator } from "@aws-amplify/ui-react";
 import { Auth } from "aws-amplify";
+import { useEffect } from "react";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
+import Banner from "../components/Banner";
 import Footer from "../components/Footer";
 import MovieList from "../components/MovieList";
 import Navbar from "../components/Navbar";
-import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import { useState } from "react";
-import Banner from "../components/Banner";
 
 function HomeScreen() {
   const navigate = useNavigate();

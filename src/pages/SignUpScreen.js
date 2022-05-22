@@ -87,8 +87,7 @@ export default function SignUpScreen() {
             <Button
               primary={false}
               onClick={async () => {
-                // eslint-disable-next-line no-unused-expressions
-                (await signUpUser()) ? setIsCodeSent(!isCodeSent) : null;
+              signUpUser().then(()=> setIsCodeSent(!isCodeSent));
               }}
             >
               {isLoading && <Loader />} Send Code
