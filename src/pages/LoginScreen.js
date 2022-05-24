@@ -9,29 +9,26 @@ import { Card, Center, InputBox } from "../elements/Layout";
 import { Title } from "../elements/Text";
 import { Button } from "../elements/Button";
 import * as React from "react";
+import toast, { Toaster } from "react-hot-toast";
 
 export default function LoginScreen() {
-  // const NETFLIX_URL =
-  //   "http://assets.stickpng.com/images/580b57fcd9996e24bc43c529.png";
-
   const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
-  /**
-   * @typedef {any}
-   */
-
   const singIn = async (e) => {
     setIsLoading(true);
     e.preventDefault();
     try {
+      if (!username && !password) {
+        throw new Error("Username & Password can not be empty");
+      }
       await Auth.signIn(username, password);
       setIsLoading(false);
       navigate("/home");
     } catch (err) {
-      alert(err);
+      toast.error(err.message);
       setIsLoading(false);
     }
   };
@@ -66,6 +63,7 @@ export default function LoginScreen() {
 
   return (
     <Center>
+      <Toaster />
       <img
         alt="banner"
         className="w-screen h-screen absolute opacity-40 object-cover"

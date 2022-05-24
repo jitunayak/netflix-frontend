@@ -1,5 +1,6 @@
 import { Auth } from "aws-amplify";
 import React, { useState } from "react";
+import toast, { Toaster } from "react-hot-toast";
 // import toast, { Toaster } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import Loader from "../components/Loader";
@@ -27,7 +28,7 @@ export default function SignUpScreen() {
       setIsLoading(false);
       navigate("/login");
     } catch (err) {
-      alert(err);
+      toast.error(err.message);
       setIsLoading(false);
     }
   };
@@ -41,7 +42,7 @@ export default function SignUpScreen() {
       setIsLoading(false);
     } catch (err) {
       console.log(err);
-      alert(err);
+      toast.error(err.message);
       setIsLoading(false);
     }
   };
@@ -54,6 +55,7 @@ export default function SignUpScreen() {
   };
   return (
     <Center>
+      <Toaster />
       <Card>
         <Title>Sign Up</Title>
         {!isCodeSent && (
@@ -87,7 +89,7 @@ export default function SignUpScreen() {
             <Button
               primary={false}
               onClick={async () => {
-              signUpUser().then(()=> setIsCodeSent(!isCodeSent));
+                signUpUser().then(() => setIsCodeSent(!isCodeSent));
               }}
             >
               {isLoading && <Loader />} Send Code

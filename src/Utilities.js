@@ -3,7 +3,7 @@ export function setStoredToken(userToken) {
 }
 export function getStoredToken() {
   const tokenString = sessionStorage.getItem("token");
-  if (tokenString == null || tokenString == undefined) {
+  if (tokenString == null || tokenString === undefined) {
     return null;
   }
   const userToken = JSON.parse(tokenString);
