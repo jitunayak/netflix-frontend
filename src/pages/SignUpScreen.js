@@ -82,7 +82,7 @@ export default function SignUpScreen() {
               onChange={(e) => setConfirmPassword(e.target.value)}
             />
             {!isPasswordSame() ? (
-              <label className="text-red-400  text-sm py-1">
+              <label className="py-1  text-sm text-red-400">
                 Password Didn't Match
               </label>
             ) : null}

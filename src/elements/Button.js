@@ -6,7 +6,7 @@ import tw from "tailwind-styled-components";
 
 export const Button = tw.button`
  ${(p) =>
-   p.primary
+   p.primary === true
      ? "bg-red-600 text-white hover:bg-red-700 "
      : "bg-white border-red-600 text-red-600"}
     rounded-sm py-1 px-2 mt-10 font-bold text-lg 

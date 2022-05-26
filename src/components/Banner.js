@@ -14,25 +14,25 @@ export default function Banner() {
         </div>
       </div>
 
-      <h1 className="text-white text-2xl font-bold md:text-4xl lg:text-7xl">
+      <h1 className="text-2xl font-bold text-white md:text-4xl lg:text-7xl">
         The Order
       </h1>
-      <p className=" text-white max-w-xs text-xs text-shadow-md md:max-w-lg md:text-lg lg:max-w-2xl lg:text-2xl">
+      <p className=" text-shadow-md max-w-xs text-xs text-white md:max-w-lg md:text-lg lg:max-w-2xl lg:text-2xl">
         The Order of the Phoenix is a fantasy drama film directed by David
         Yates, written by David Greenwalt and starring Tom Cruise, Morgan
         Freeman, Henry Czerny, and Michael Caine.
       </p>
       <div className="flex space-x-3">
-        <button className="flex flex-row bg-white text-black justify-center items-center px-8 rounded-md">
-          <FaPlay className="h-4 w-4 text-black md:h-7 md:w-7 m-2" />
+        <button className="flex flex-row items-center justify-center rounded-md bg-white px-8 text-black">
+          <FaPlay className="m-2 h-4 w-4 text-black md:h-7 md:w-7" />
           <div className="font-bold">Play</div>
         </button>
 
         <button
-          className="bg-gray-400 flex flex-row justify-center items-center px-8 rounded-md "
+          className="flex flex-row items-center justify-center rounded-md bg-gray-400 px-8 "
           onClick={() => {}}
         >
-          <FaInfoCircle className="h-5 w-5 md:h-8 md:w-8 text-white m-2" />
+          <FaInfoCircle className="m-2 h-5 w-5 text-white md:h-8 md:w-8" />
           <div className="font-bold text-white">More Info</div>
         </button>
       </div>

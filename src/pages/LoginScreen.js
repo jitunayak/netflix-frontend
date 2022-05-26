@@ -66,19 +66,18 @@ export default function LoginScreen() {
       <Toaster />
       <img
         alt="banner"
-        className="w-screen h-screen absolute opacity-40 object-cover"
-        //src="https://img.wallpapersafari.com/desktop/1680/1050/24/74/zgeTuV.jpg"
+        className="absolute h-screen w-screen object-cover opacity-40"
         src={LoginCover}
       />
       <form className="absolute">
-        <div className="flex-col flex rounded-sm">
+        <div className="flex flex-col rounded-sm">
           <Card>
             <img
               alt="netflix logo"
               src={NetflixLogo}
-              className="w-60 h-36 self-center"
+              className="h-36 w-60 self-center"
             ></img>
-            <Title>Sign In 2</Title>
+            <Title>Sign In</Title>
             <InputBox
               type="email"
               inputMode="email"
@@ -87,7 +86,7 @@ export default function LoginScreen() {
               onChange={(e) => setUsername(e.target.value)}
             />
             {!validateEmail(username) ? (
-              <label className="text-red-400  text-sm py-1">
+              <label className="py-1  text-sm text-red-400">
                 Enter a valid email or phone number
               </label>
             ) : null}
@@ -98,7 +97,7 @@ export default function LoginScreen() {
               onChange={(e) => setPassword(e.target.value)}
             />
             {!validatePassword(password) ? (
-              <label className="text-red-400  text-sm py-1">
+              <label className="py-1  text-sm text-red-400">
                 Minimum length should be 8 characters
               </label>
             ) : null}
@@ -110,10 +109,10 @@ export default function LoginScreen() {
             >
               {isLoading && <Loader />} Sign In
             </Button>
-            <Link to="/home" className="text-white text-center pt-4">
+            <Link to="/home" className="pt-4 text-center text-white">
               Login as guest
             </Link>
-            <div className="flex-row flex pt-10">
+            <div className="flex flex-row pt-10">
               <div className="text-zinc-500">
                 New To Netflix Clone?
                 <Link to="/signup" className="text-white">

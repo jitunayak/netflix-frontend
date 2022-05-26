@@ -32,16 +32,16 @@ export default function MovieList({ category }) {
 
   return (
     <div>
-      <h1 className="text-xl font-extrabold text-left px-2 text-white mx-4 mt-2">
+      <h1 className="mx-4 mt-2 px-2 text-left text-xl font-extrabold text-white">
         {category}
       </h1>
-      <div className="flex  flex-row justify-start  overflow-x-auto scrollbar-hide scroll-smooth py-2">
+      <div className="flex  flex-row justify-start  overflow-x-auto scroll-smooth py-2 scrollbar-hide">
         {movies.map((movie, index) => {
           return (
             <div
               key={movie.movieId}
               className={
-                "flex-shrink-0 w-64 mx-2 my-4 block rounded-sm hover:scale-110 transition ease-out cursor-pointer min-w-[180px] md:min-w-[260px]"
+                "mx-2 my-4 block w-64 min-w-[180px] flex-shrink-0 cursor-pointer rounded-sm transition ease-out hover:scale-110 md:min-w-[260px]"
               }
               onClick={() => {
                 setShowDetails(movie);
@@ -51,7 +51,7 @@ export default function MovieList({ category }) {
                 <img
                   alt="thumbnail"
                   src={movie.thumbnail}
-                  className="aspect-video w-72 hover:shadow-lg rounded-lg opacity-100"
+                  className="aspect-video w-72 rounded-lg opacity-100 hover:shadow-lg"
                 ></img>
               ) : null}
             </div>
@@ -59,11 +59,11 @@ export default function MovieList({ category }) {
         })}
 
         {showDetails != null ? (
-          <div className="fixed lg:left-1/4  lg:right-1/2 lg:w-1/2  sm:m-2 transform bg-zinc-900 rounded-lg top-1 z-50 overflow-y-auto">
+          <div className="fixed top-1  z-50 transform  overflow-y-auto rounded-lg bg-zinc-900 sm:m-2 lg:left-1/4 lg:right-1/2 lg:w-1/2">
             <ReactPlayer width={-29} url={showDetails.trailerUrl} playing />
 
             <div className="p-6" onClick={() => setShowDetails(null)}>
-              <button className="bg-red-600 text-white font-bold px-16 py-2 rounded-sm">
+              <button className="rounded-sm bg-red-600 px-16 py-2 font-bold text-white">
                 Play
               </button>
               <div className="flex justify-between py-2">
@@ -92,7 +92,7 @@ export default function MovieList({ category }) {
                 </svg>
               </div>
 
-              <div className=" font-bold text-white py-2 text-xl">
+              <div className=" py-2 text-xl font-bold text-white">
                 {showDetails.title}
               </div>
               <div className=" font-normal text-gray-400">
@@ -100,13 +100,13 @@ export default function MovieList({ category }) {
               </div>
               <hr className="my-4" />
               <div
-                className="font-black text-gray-200 py-2"
+                className="py-2 font-black text-gray-200"
                 style={{ fontSize: 14 }}
               >
                 Rating: {showDetails.rating}
               </div>
               <div
-                className="text-xs font-black  text-gray-200 bg-zinc-700 p-2 w-min rounded-2xl"
+                className="w-min rounded-2xl  bg-zinc-700 p-2 text-xs font-black text-gray-200"
                 style={{ fontSize: 14 }}
               >
                 {showDetails.genre}

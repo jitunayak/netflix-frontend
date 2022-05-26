@@ -28,7 +28,7 @@ export default function Navbar({ username }) {
     }
   };
   return (
-    <div className="px-6 justify-between items-center flex flex-wrap  align-middle  text-white">
+    <div className="flex flex-wrap items-center justify-between px-6  align-middle  text-white">
       {/* <div className="text-2xl font-extrabold text-red-100">NETFLIX</div> */}
       <img alt="netflix logo" src={NETFLIX_URL} className="w-48"></img>
 
@@ -75,15 +75,15 @@ export default function Navbar({ username }) {
         Watchlist
       </p>
 
-      <div className="flex flex-row justify-center items-center">
+      <div className="flex flex-row items-center justify-center">
         <img
           alt="profile"
-          className="w-8 h-8"
+          className="h-8 w-8"
           src="https://occ-0-2041-3662.1.nflxso.net/art/0d282/eb648e0fd0b2676dbb7317310a48f9bdc2b0d282.png"
         />
         <p
           onClick={() => signOut()}
-          className="text-white p-4 text-lg font-normal cursor-pointer"
+          className="cursor-pointer p-4 text-lg font-normal text-white"
         >
           {username?.split("@")[0] ?? "Guest"}
         </p>
