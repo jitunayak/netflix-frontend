@@ -11,6 +11,7 @@ import Navbar from "../components/Navbar";
 function HomeScreen() {
   const navigate = useNavigate();
   const [userName, setUserName] = useState("");
+
   const isUserIsAuthenticated = async () => {
     try {
       const currentSession = await Auth.currentAuthenticatedUser();
@@ -20,7 +21,7 @@ function HomeScreen() {
       navigate("/login");
     }
   };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+
   useEffect(() => {
     isUserIsAuthenticated();
   });

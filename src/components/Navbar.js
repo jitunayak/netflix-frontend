@@ -1,6 +1,7 @@
 import { Auth } from "aws-amplify";
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import Menu from "./Menu";
 
 export default function Navbar({ username }) {
   const NETFLIX_URL =
@@ -12,6 +13,8 @@ export default function Navbar({ username }) {
   // )}callback`;
 
   const [currentSelection, setCurrentSelection] = React.useState("Home");
+  const [showSubMenu, setShowSubMenu] = React.useState(false);
+
   const styles = {
     navbar: "bg-zinc-800 px-4 py-2 rounded-md font-semibold cursor-pointer",
     navbarHidden:
@@ -75,17 +78,20 @@ export default function Navbar({ username }) {
         Watchlist
       </p>
 
-      <div className="flex flex-row items-center justify-center">
+      <div className="flex flex-row items-center float-right ">
         <img
           alt="profile"
           className="h-8 w-8"
           src="https://occ-0-2041-3662.1.nflxso.net/art/0d282/eb648e0fd0b2676dbb7317310a48f9bdc2b0d282.png"
         />
         <p
-          onClick={() => signOut()}
+          // onClick={() => signOut()}
+          onMouseEnter={() => setShowSubMenu(true)}
+          onMouseLeave={() => setShowSubMenu(false)}
           className="cursor-pointer p-4 text-lg font-normal text-white"
         >
           {username?.split("@")[0] ?? "Guest"}
+          {showSubMenu && <Menu menuItems={['Account', 'Subscription', 'Logout']} />}
         </p>
       </div>
 
