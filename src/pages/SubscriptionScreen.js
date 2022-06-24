@@ -7,7 +7,7 @@ export default function SubscriptionScreen() {
     const navigate = useNavigate();
     useEffect(() => {
         setTimeout(() => {
-            //window.open('https://buy.stripe.com/test_5kA5lrgh2fPx9JSdQQ')
+            window.open('https://buy.stripe.com/test_5kA5lrgh2fPx9JSdQQ')
         }, 200)
     }, [])
 
