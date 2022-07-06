@@ -10,6 +10,7 @@ import LoginScreen from "./pages/LoginScreen";
 import SignUpScreen from "./pages/SignUpScreen";
 import SubscriptionScreen from "./pages/SubscriptionScreen";
 import LogOutScreen from "./pages/LogOutScreen";
+import Account from "./pages/Account";
 
 Amplify.configure(awsconfig);
 
@@ -23,7 +24,7 @@ function App() {
         <Route path="/home" element={<HomeScreen />} />
         <Route path="/signup" element={<SignUpScreen />} />
         <Route path="/subscription" element={<SubscriptionScreen />} />
-
+        <Route path="/account" element={<Account />} />
       </Routes>
     </BrowserRouter>
   );
