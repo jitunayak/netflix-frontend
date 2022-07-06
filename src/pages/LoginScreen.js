@@ -26,7 +26,7 @@ export default function LoginScreen() {
       }
       await Auth.signIn(username, password);
       setIsLoading(false);
-      navigate("/home");
+      navigate("/home", { replace: true });
     } catch (err) {
       toast.error(err.message);
       setIsLoading(false);

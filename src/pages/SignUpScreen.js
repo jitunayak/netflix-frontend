@@ -26,7 +26,7 @@ export default function SignUpScreen() {
       console.log(emailVerify);
       alert("Your account is verified sucessfully");
       setIsLoading(false);
-      navigate("/login");
+      navigate("/login", { replace: true });
     } catch (err) {
       toast.error(err.message);
       setIsLoading(false);
